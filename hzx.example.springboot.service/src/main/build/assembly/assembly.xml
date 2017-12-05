@@ -1,0 +1,40 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>distribution</id>
+
+    <!-- 定义输出格式 -->
+    <formats>
+        <format>war</format>
+        <format>zip</format>
+    </formats>
+
+    <!-- 定义文件组的组装方式 -->
+    <!--<fileSets>-->
+        <!--&lt;!&ndash; 将项目中 src/main/bin 目录下的脚本文件copy到target目录的bin目录下 &ndash;&gt;-->
+        <!--<fileSet>-->
+            <!--<directory>src/main/bin</directory>-->
+            <!--<outputDirectory>bin</outputDirectory>-->
+        <!--</fileSet>-->
+
+        <!--&lt;!&ndash; 将项目中 src/main/resources 目录下的配置文件拷贝到target目录的conf目录下 &ndash;&gt;-->
+        <!--<fileSet>-->
+            <!--<directory>src/main/resources</directory>-->
+            <!--<outputDirectory></outputDirectory>-->
+            <!--&lt;!&ndash; 过滤配置文件，对其中的maven变量进行复制&ndash;&gt;-->
+            <!--<filtered>true</filtered>-->
+        <!--</fileSet>-->
+
+    <!--</fileSets>-->
+
+    <!-- 指定依赖jar包输出的目录 -->
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <!-- 只包含runtime作用于的依赖-->
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>
